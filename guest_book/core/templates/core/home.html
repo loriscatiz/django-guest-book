@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
+    <form method="POST">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" value="submit">
+    </form>
+
+
+    <ul>
+    {% for message in messages%}
+        <li class = "row">
+           Name: {{message.name}}
+            {% if message.body %}
+                <br>
+                Message: {{message.body}}
+            {% endif %}
+        </li>  
+    {% endfor %}
+    </ul>
+
+{% endblock %}
